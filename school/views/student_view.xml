@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View of Scientific Subjects-->
+        <record id="view_scientific_subjects_form" model="ir.ui.view">
+            <field name="name">view.scientific.subjects.form</field>
+            <field name="model">scientific.subjects.information</field>
+            <field name="arch" type="xml">
+                <form string="Scientific Subjects Information">
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                           <!--
+                            <div>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </div>
+                            -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of Scientific Subjects-->
+        <record id="view_scientific_subjects_tree" model="ir.ui.view">
+            <field name="name">view.scientific.subjects.tree</field>
+            <field name="model">scientific.subjects.information</field>
+            <field name="arch" type="xml">
+                <tree string="Scientific Subjects Information">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of Subjects-->
+        <record id="action_scientific_subjects_information" model="ir.actions.act_window">
+            <field name="name">Scientific Subjects Information</field>
+            <field name="res_model">scientific.subjects.information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Form View of Degree -->
+        <record id="view_degree_form" model="ir.ui.view">
+            <field name="name">view.degree.form</field>
+            <field name="model">degrees.information</field>
+            <field name="arch" type="xml">
+                <form string="Degree Information">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="range_from"/>
+                            <field name="range_to"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of Degree-->
+        <record id="view_degree_tree" model="ir.ui.view">
+            <field name="name">view.degree.tree</field>
+            <field name="model">degrees.information</field>
+            <field name="arch" type="xml">
+                <tree string="Degree Information">
+                    <field name="name"/>
+                    <field name="range_from"/>
+                    <field name="range_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of Degree-->
+        <record id="action_degree_information" model="ir.actions.act_window">
+            <field name="name">Degree Information</field>
+            <field name="res_model">degrees.information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Form View of Lecturer Information -->
+        <record id="view_lecturer_form" model="ir.ui.view">
+            <field name="name">view.lecturer.form</field>
+            <field name="model">lecturer.information</field>
+            <field name="arch" type="xml">
+                <form string="Lecturer Information">
+                    <sheet>
+                        <group>
+                            <div>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </div>
+                            <field name="name"/>
+                            <field name="subjects" widget="many2many_tags"/>
+                            <field name="national_id"/>
+                            <field name="phone"/>
+                            <field name="educational_qualification"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of Lecturer Information-->
+        <record id="view_lecturer_tree" model="ir.ui.view">
+            <field name="name">view.lecturer.tree</field>
+            <field name="model">lecturer.information</field>
+            <field name="arch" type="xml">
+                <tree string="Lecturer Information">
+                    <field name="name"/>
+                    <field name="subjects" widget="many2many_tags"/>
+                    <field name="national_id"/>
+                    <field name="phone"/>
+                    <!--<field name="educational_qualification"/>-->
+
+        <field name="educational_qualification"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of Lecturer Information-->
+        <record id="action_lecturer_information" model="ir.actions.act_window">
+            <field name="name">Lecturer Information</field>
+            <field name="res_model">lecturer.information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Form View of Student Information -->
+        <record id="view_student_form" model="ir.ui.view">
+            <field name="name">view.student.form</field>
+            <field name="model">student.information</field>
+            <field name="arch" type="xml">
+                <form string="Student Information">
+                    <sheet>
+                        <div class="oe_button_box" position="inside">
+                            <button string="All Payment" type="object" name="action_view_payment" class="oe_stat_button" icon="fa-briefcase"></button>
+                        </div>
+                        <group>
+                            <div>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </div>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="year"/>
+                            <field name="date_of_birth"/>
+                            <field name="national_id"/>
+                             <field name="students_subjects">
+                                <tree>
+                                    <field name="subject_ids"/>
+                                    <field name="code"/>
+                                    <field name="student_ids" invisible="1"/>
+                                </tree>
+                                 <form>
+                                      <group>
+                                          <field name="subject_ids"/>
+                                          <field name="code"/>
+                                          <field name="student_ids" invisible="1"/>
+                                      </group>
+                                 </form>
+                             </field>
+                            <field name="students_degrees">
+                                <tree>
+                                    <field name="degree_ids"/>
+                                    <field name="name"/>
+                                    <field name="student_ids" invisible="1"/>
+                                </tree>
+                                 <form>
+                                      <group>
+                                          <field name="degree_ids"/>
+                                          <field name="name"/>
+                                          <field name="student_ids" invisible="1"/>
+                                      </group>
+                                 </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of Student Information-->
+        <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">view.student.tree</field>
+            <field name="model">student.information</field>
+            <field name="arch" type="xml">
+                <tree string="Student Information">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="year"/>
+                    <field name="date_of_birth"/>
+                    <field name="national_id"/>
+                    <field name="students_subjects"/>
+                    <field name="students_degrees"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of Student Information-->
+        <record id="action_student_information" model="ir.actions.act_window">
+            <field name="name">Student Information</field>
+            <field name="res_model">student.information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Form View of Employee Information -->
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">view.employee.form</field>
+            <field name="model">employee.information</field>
+            <field name="arch" type="xml">
+                <form string="Employee Information">
+                    <sheet>
+                        <group>
+                            <div>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </div>
+                            <field name="name"/>
+                            <field name="national_id"/>
+                            <field name="phone"/>
+                            <field name="employee_type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of Employee Information-->
+        <record id="view_employee_tree" model="ir.ui.view">
+            <field name="name">view.employee.tree</field>
+            <field name="model">employee.information</field>
+            <field name="arch" type="xml">
+                <tree string="Lecturer Information">
+                    <field name="name"/>
+                    <field name="national_id"/>
+                    <field name="phone"/>
+                    <field name="employee_type"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of Employee Information-->
+        <record id="action_employee_information" model="ir.actions.act_window">
+            <field name="name">Employee Information</field>
+            <field name="res_model">employee.information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Form of Inherit Field Student Payment in invoice account -->
+        <record id="invoice_form_inherit_student" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit.student</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="student_payment"/>
+                    <field name="student_ids"/>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem id="menu_item" name="School" web_icon="school,static/description/icon.png"/>
+        <menuitem id="menu_scientific_school" name="School" parent="menu_item"/>
+        <menuitem id="menu_lecturer_information" name="Lecturers" parent="menu_scientific_school" action="action_lecturer_information"/>
+        <menuitem id="menu_employee_information" name="Employees" parent="menu_scientific_school" action="action_employee_information"/>
+        <menuitem id="menu_scientific_subjects_information" name="Scientific Subjects" parent="menu_scientific_school" action="action_scientific_subjects_information"/>
+        <menuitem id="menu_degree_information" name="Degrees" parent="menu_scientific_school" action="action_degree_information"/>
+        <menuitem id="menu_student_information" name="Students" parent="menu_scientific_school" action="action_student_information"/>
+
+    </data>
+</odoo>

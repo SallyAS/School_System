@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_school,student.student,school.model_student_information,,1,1,1,1
+access_student_subject_school,student_subject.student_subject,school.model_student_subject,,1,1,1,1
+access_student_degree_school,student_degree.student_degree,school.model_student_degree,,1,1,1,1
+access_scientific_subjects_school,scientific_subjects.scientific_subjects,school.model_scientific_subjects_information,,1,1,1,1
+access_degrees_school,degrees.degrees,school.model_degrees_information,,1,1,1,1
+access_lecturer_school,lecturer.lecturer,school.model_lecturer_information,,1,1,1,1
+access_employee_school,employee.employee,school.model_employee_information,,1,1,1,1
+access_AccountInvoice_school,AccountInvoice.AccountInvoice,school.model_account_invoice,,1,1,1,1
